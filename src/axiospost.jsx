@@ -12,6 +12,16 @@ function AxiosPost() {
         Axios.post("https://reqres.in/api/users", inputData)
         .then((res) => console.log(res))
     }
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        Axios.put("https://reqres.in/api/users/2", inputData)
+        .then((res) => console.log(res))
+    }
+    const handleDelete = (e) => {
+        e.preventDefault();
+        Axios.delete("https://reqres.in/api/users/2")
+        .then((res) => console.log(res))
+    }
   return (
     <>
     <label> First Name: </label>
@@ -19,6 +29,8 @@ function AxiosPost() {
     <label> Last Name: </label>
     <input type="text" name="lastName" value = {inputData.lastName} onChange={handleData}></input>
 <button onClick={handleSubmit}>Submit</button>
+<button onClick={handleUpdate}>Update</button>
+<button onClick={handleDelete}>Delete</button>
     </>
   )
 }
